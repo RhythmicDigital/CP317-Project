@@ -10,7 +10,7 @@ import java.util.HashSet;
  */
 public class Student extends Person {
 
-    protected String studentId = null;
+    protected int studentId;
     protected HashMap<String, ArrayList<Integer>> studentAllMarks = new HashMap<String, ArrayList<Integer>>();
     public HashMap<String, Integer> studentFinalMarks = new HashMap<String, Integer>();
 
@@ -21,7 +21,7 @@ public class Student extends Person {
      * @param firstName Student first name (given name): defined in Person
      * @param studentId        Student id number
      */
-    public Student(final String lastName, final String firstName, final String studentId) {
+    public Student(final String lastName, final String firstName, final int studentId) {
 	    super(lastName, firstName);
 	    this.studentId = studentId;
     }
@@ -31,7 +31,7 @@ public class Student extends Person {
      *
      * @return this.studentId
      */
-    public String getId() {
+    public int getId() {
 	    return this.studentId;
     }
 

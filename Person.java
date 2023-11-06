@@ -53,6 +53,15 @@ public class Person implements Comparable<Person> {
     }
 
     /**
+     * Getter for first name and last name.
+     *
+     * @return this.firstName + " " + this.lastName
+     */
+    public String getName() {
+	    return this.firstName + " " + this.lastName;
+    }
+
+    /**
      * Creates formatted string version of Person.
      */
     @Override
