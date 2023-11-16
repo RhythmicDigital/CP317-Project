@@ -1,3 +1,5 @@
+package src;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -15,11 +17,11 @@ public class Student extends Person {
     public HashMap<String, Integer> studentFinalMarks = new HashMap<String, Integer>();
 
     /**
-     * Student constructor
+     * src.Student constructor
      *
-     * @param lastName  Student last name (surname): defined in Person
-     * @param firstName Student first name (given name): defined in Person
-     * @param studentId        Student id number
+     * @param lastName  src.Student last name (surname): defined in src.Person
+     * @param firstName src.Student first name (given name): defined in src.Person
+     * @param studentId        src.Student id number
      */
     public Student(final String lastName, final String firstName, final int studentId) {
 	    super(lastName, firstName);
@@ -36,7 +38,7 @@ public class Student extends Person {
     }
 
     /**
-     * Creates formatted String version of Student.
+     * Creates formatted String version of src.Student.
      */
     @Override
     public String toString() {

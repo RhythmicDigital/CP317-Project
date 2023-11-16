@@ -1,3 +1,5 @@
+package src;
+
 /**
  * Base class.
  *
@@ -11,10 +13,10 @@ public class Person implements Comparable<Person> {
     protected String lastName = null;
 
     /**
-     * Person constructor.
+     * src.Person constructor.
      *
-     * @param lastName  Person last name (surname)
-     * @param firstName Person first name (given name)
+     * @param lastName  src.Person last name (surname)
+     * @param firstName src.Person first name (given name)
      */
     public Person(final String lastName, final String firstName) {
 	    this.lastName = lastName;
@@ -23,7 +25,7 @@ public class Person implements Comparable<Person> {
 
     @Override
     public int compareTo(final Person person) {
-	// Compares two Person objects by lastName then firstName.
+	// Compares two src.Person objects by lastName then firstName.
 
 	int flag = this.lastName.compareTo(person.lastName);
 
@@ -62,7 +64,7 @@ public class Person implements Comparable<Person> {
     }
 
     /**
-     * Creates formatted string version of Person.
+     * Creates formatted string version of src.Person.
      */
     @Override
     public String toString() {

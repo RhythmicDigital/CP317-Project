@@ -1,5 +1,9 @@
+package src;
 
 import java.util.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class ProjectMain {
 
@@ -17,15 +21,20 @@ public class ProjectMain {
      */
     public static void main(String[] args) {
         System.out.println("CP317 Project Class Tests");
+
+        String coursePath = "input/CourseFile.txt";
+        File courseFile = new File(coursePath);
+        String namePath = "input/NameFile.txt";
+        File nameFile = new File(namePath);
         testStudent();
     }
 
     /**
-     * Simple Student tests.
+     * Simple src.Student tests.
      */
     public static void testStudent() {
         System.out.println(TEST_LINE);
-        System.out.println("Testing Student");
+        System.out.println("Testing src.Student");
         System.out.println(LINE);
         Student student1 = new Student("Smith", "John", 200713471);
         System.out.println(student1.toString());
