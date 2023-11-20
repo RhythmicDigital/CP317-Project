@@ -10,8 +10,9 @@ import java.util.HashSet;
  * @author Team
  * @version 2023-11-06
  */
-public class Student extends Person {
+public class Student{
 
+    protected String name;
     protected int studentId;
     protected HashMap<String, ArrayList<Integer>> studentAllMarks = new HashMap<String, ArrayList<Integer>>();
     public HashMap<String, Integer> studentFinalMarks = new HashMap<String, Integer>();
@@ -19,12 +20,12 @@ public class Student extends Person {
     /**
      * src.Student constructor
      *
-     * @param lastName  src.Student last name (surname): defined in src.Person
-     * @param firstName src.Student first name (given name): defined in src.Person
+     *
+     * @param name src.Student first name (given name): defined in src.Person
      * @param studentId        src.Student id number
      */
-    public Student(final String lastName, final String firstName, final int studentId) {
-	    super(lastName, firstName);
+    public Student(final String name, final int studentId) {
+	    this.name = name;
 	    this.studentId = studentId;
     }
 
@@ -42,7 +43,11 @@ public class Student extends Person {
      */
     @Override
     public String toString() {
-	    return (super.toString() + ": " + this.studentId);
+	    return (this.name + ": " + this.studentId);
+    }
+
+    public void setMarks(String courseName, ArrayList<Integer> marks){
+        this.studentAllMarks.put(courseName, marks);
     }
 
 }

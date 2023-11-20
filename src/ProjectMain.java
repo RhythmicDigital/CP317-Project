@@ -36,7 +36,7 @@ public class ProjectMain {
         System.out.println(TEST_LINE);
         System.out.println("Testing src.Student");
         System.out.println(LINE);
-        Student student1 = new Student("Smith", "John", 200713471);
+        Student student1 = new Student("John Smith", 200713471);
         System.out.println(student1.toString());
     }
 }
