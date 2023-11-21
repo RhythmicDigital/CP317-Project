@@ -15,7 +15,7 @@ public class Student {
 	protected String name;
 	protected int studentId;
 	protected HashMap<String, ArrayList<Integer>> studentAllMarks = new HashMap<String, ArrayList<Integer>>();
-	public HashMap<String, Integer> studentFinalMarks = new HashMap<String, Integer>();
+	public HashMap<String, Double> studentFinalMarks = new HashMap<String, Double>();
 
 	/**
 	 * src.Student constructor
@@ -50,7 +50,15 @@ public class Student {
 		this.studentAllMarks.put(courseName, marks);
 	}
 
-	public void getMarks() {
+	public void setFinalMark(String courseName, Double mark) {
+		this.studentFinalMarks.put(courseName, mark);
+	}
+
+	public HashMap<String, ArrayList<Integer>> getAllMarks() {
+		return this.studentAllMarks;
+	}
+
+	public void debug() {
 		for (Map.Entry<String, ArrayList<Integer>> student : studentAllMarks.entrySet()) {
 			String key = student.getKey();
 			ArrayList<Integer> value = student.getValue();
