@@ -1,4 +1,6 @@
-package src;
+package src.processingComponent;
+
+import src.Student;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -22,12 +24,12 @@ public class Processing {
 		return bd.doubleValue();
 	}
 
-	private static double calculationHelper(ArrayList<Integer> marks) {
+	private static double calculationHelper(ArrayList<Double> marks) {
 		double finalMark = 0;
-		int firstMark = marks.get(0);
-		int secondMark = marks.get(1);
-		int thirdMark = marks.get(2);
-		int finalExamMark = marks.get(3);
+		Double firstMark = marks.get(0);
+		Double secondMark = marks.get(1);
+		Double thirdMark = marks.get(2);
+		Double finalExamMark = marks.get(3);
 
 		finalMark = firstMark * TEST_WEIGHT + secondMark * TEST_WEIGHT + thirdMark * TEST_WEIGHT
 				+ finalExamMark * FINAL_EXAM_WEIGHT;
@@ -37,7 +39,7 @@ public class Processing {
 
 	public static void calculateFinal(Set<Student> students) {
 		double finalMark = 0;
-		HashMap<String, ArrayList<Integer>> allMarks;
+		HashMap<String, ArrayList<Double>> allMarks;
 		Iterator<Student> studentsIterator = students.iterator();
 
 		// Iterate over all students
@@ -46,14 +48,14 @@ public class Processing {
 			allMarks = currentStudent.getAllMarks();
 
 			// Iterate over all of student's courses
-			for (Map.Entry<String, ArrayList<Integer>> course : allMarks.entrySet()) {
+			for (Map.Entry<String, ArrayList<Double>> course : allMarks.entrySet()) {
 				String courseName = course.getKey();
-				ArrayList<Integer> marks = course.getValue();
+				ArrayList<Double> marks = course.getValue();
 
 				// Calculate final mark of current course
 				finalMark = round(calculationHelper(marks), 1);
 				currentStudent.setFinalMark(courseName, finalMark);
-				System.out.println(courseName + ", " + currentStudent.name + ", " + finalMark);
+				System.out.println(courseName + ", " + currentStudent.getName() + ", " + finalMark);
 			}
 		}
 	}

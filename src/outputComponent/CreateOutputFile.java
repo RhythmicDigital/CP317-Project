@@ -1,4 +1,6 @@
-package src;
+package src.outputComponent;
+
+import src.Student;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -8,7 +10,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -17,25 +18,18 @@ public class CreateOutputFile {
 	final static Charset ENCODING = StandardCharsets.UTF_8;
 
 	public static void writeNewFile(String outputFilePath, Set<Student> setOfStudents) {
-		int studentID;
-		String studentName;
-		String courseName;
-		double finalMark;
-		HashMap<String, Double> finalMarks;
 		Path path = Paths.get(outputFilePath);
 
 		try (BufferedWriter writer = Files.newBufferedWriter(path, ENCODING)) {
-			Iterator<Student> studentsIterator = setOfStudents.iterator();
-			while (studentsIterator.hasNext()) {
-				Student currentStudent = studentsIterator.next();
-				studentID = currentStudent.studentId;
-				studentName = currentStudent.name;
-				finalMarks = currentStudent.studentFinalMarks;
+			for (Student currentStudent : setOfStudents) {
+				int studentID = currentStudent.getId();
+				String studentName = currentStudent.getName();
+				HashMap<String, Double> finalMarks = currentStudent.getFinalMarks();
 
-				// Iterate over all of student's courses
+				// Iterate over all of the student's courses
 				for (Map.Entry<String, Double> course : finalMarks.entrySet()) {
-					courseName = course.getKey();
-					finalMark = course.getValue();
+					String courseName = course.getKey();
+					double finalMark = course.getValue();
 
 					String line = studentID + ", " + studentName + ", " + courseName + ", " + finalMark;
 					writer.write(line);
@@ -45,7 +39,6 @@ public class CreateOutputFile {
 			}
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

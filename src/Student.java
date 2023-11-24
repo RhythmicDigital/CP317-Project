@@ -14,14 +14,14 @@ public class Student {
 
 	protected String name;
 	protected int studentId;
-	protected HashMap<String, ArrayList<Integer>> studentAllMarks = new HashMap<String, ArrayList<Integer>>();
+	protected HashMap<String, ArrayList<Double>> studentAllMarks = new HashMap<String, ArrayList<Double>>();
 	public HashMap<String, Double> studentFinalMarks = new HashMap<String, Double>();
 
 	/**
 	 * src.Student constructor
 	 *
 	 *
-	 * @param name      src.Student name (given name): defined in src.Person
+	 * @param name      src.Student name (given name): defined in output.Person
 	 * @param studentId src.Student id number
 	 */
 	public Student(final String name, final int studentId) {
@@ -38,6 +38,8 @@ public class Student {
 		return this.studentId;
 	}
 
+	public String getName(){return this.name;}
+
 	/**
 	 * Creates formatted String version of src.Student.
 	 */
@@ -46,7 +48,7 @@ public class Student {
 		return (this.name + ": " + this.studentId);
 	}
 
-	public void setMarks(String courseName, ArrayList<Integer> marks) {
+	public void setMarks(String courseName, ArrayList<Double> marks) {
 		this.studentAllMarks.put(courseName, marks);
 	}
 
@@ -54,14 +56,18 @@ public class Student {
 		this.studentFinalMarks.put(courseName, mark);
 	}
 
-	public HashMap<String, ArrayList<Integer>> getAllMarks() {
+	public HashMap<String, ArrayList<Double>> getAllMarks() {
 		return this.studentAllMarks;
 	}
 
+	public HashMap<String, Double> getFinalMarks() {
+		return this.studentFinalMarks;
+	}
+
 	public void debug() {
-		for (Map.Entry<String, ArrayList<Integer>> student : studentAllMarks.entrySet()) {
+		for (Map.Entry<String, ArrayList<Double>> student : studentAllMarks.entrySet()) {
 			String key = student.getKey();
-			ArrayList<Integer> value = student.getValue();
+			ArrayList<Double> value = student.getValue();
 			System.out.println(
 					"Name: " + this.name + ", ID: " + this.studentId + ", Course: " + key + ", Marks: " + value);
 		}

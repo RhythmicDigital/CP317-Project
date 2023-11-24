@@ -1,5 +1,11 @@
 package src;
 
+
+import src.outputComponent.CreateOutputFile;
+import src.processingComponent.Processing;
+import src.inputComponent.ReadName;
+import src.inputComponent.ReadCourse;
+
 import java.io.File;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -14,7 +20,11 @@ public class ProjectMain {
 	final static String NAME_FILE_PATH = "./input/NameFile.txt";
 	final static String OUTPUT_FILE_PATH = "./output/Output.txt";
 
-	private static Set<Student> setOfStudents = new HashSet<Student>();
+	final static ReadName nameReader = new ReadName();
+	final static ReadCourse courseReader = new ReadCourse();
+
+
+	private static final Set<Student> setOfStudents = new HashSet<Student>();
 
 	/**
 	 * For testing. Reads contents of "CourseFile.txt" and "NameFile.txt" from root
@@ -38,7 +48,7 @@ public class ProjectMain {
 		System.out.println("Testing src.Student");
 		System.out.println(LINE);
 		Student student1 = new Student("John Smith", 200713471);
-		System.out.println(student1.toString());
+		System.out.println(student1);
 		System.out.println(LINE);
 	}
 
@@ -50,7 +60,8 @@ public class ProjectMain {
 		System.out.println(LINE);
 		File courseFile = new File(COURSE_FILE_PATH);
 		File nameFile = new File(NAME_FILE_PATH);
-		ReadFile.readFile(courseFile, nameFile, setOfStudents);
+		nameReader.readFile(nameFile, setOfStudents);
+		courseReader.readFile(courseFile, setOfStudents);
 		Iterator<Student> studentsIterator = setOfStudents.iterator();
 		while (studentsIterator.hasNext()) {
 			Student currentStudent = studentsIterator.next();
@@ -60,20 +71,20 @@ public class ProjectMain {
 	}
 
 	/**
-	 * Simple src.Processing tests.
+	 * Simple src.processingComponent.Processing tests.
 	 */
 	public static void testProcessing() {
-		System.out.println("Testing src.Processing");
+		System.out.println("Testing src.processingComponent.Processing");
 		System.out.println(LINE);
 		Processing.calculateFinal(setOfStudents);
 		System.out.println(LINE);
 	}
 
 	/**
-	 * Simple src.CreateOutputFile tests.
+	 * Simple src.outputComponent.CreateOutputFile tests.
 	 */
 	public static void testCreateOutputFile() {
-		System.out.println("Testing src.CreateOutputFile");
+		System.out.println("Testing src.outputComponent.CreateOutputFile");
 		System.out.println(LINE);
 		CreateOutputFile.writeNewFile(OUTPUT_FILE_PATH, setOfStudents);
 		System.out.println(LINE);
