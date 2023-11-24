@@ -18,8 +18,8 @@ public class ReadName implements ReadFile {
 				lineNumber++;
 				String[] parts = line.split(",");
 				if (parts.length == 2) {
-					String name = parts[0].trim();
-					String id = parts[1].trim();
+					String id = parts[0].trim();
+					String name = parts[1].trim();
 
 					if (isValidStudentName(name, lineNumber) && isValidStudentId(id, lineNumber)) {
 						Student newStudent = new Student(name, Integer.parseInt(id));
