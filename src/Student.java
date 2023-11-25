@@ -3,6 +3,7 @@ package src;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Inherited class.
@@ -62,6 +63,19 @@ public class Student {
 
 	public HashMap<String, Double> getFinalMarks() {
 		return this.studentFinalMarks;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Student student = (Student) o;
+		return studentId == student.studentId;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(studentId);
 	}
 
 	public void debug() {

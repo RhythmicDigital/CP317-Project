@@ -55,7 +55,6 @@ public class Processing {
 				// Calculate final mark of current course
 				finalMark = round(calculationHelper(marks), 1);
 				currentStudent.setFinalMark(courseName, finalMark);
-				System.out.println(courseName + ", " + currentStudent.getName() + ", " + finalMark);
 			}
 		}
 	}

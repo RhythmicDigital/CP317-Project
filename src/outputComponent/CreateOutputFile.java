@@ -9,6 +9,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -17,27 +19,34 @@ public class CreateOutputFile {
 	// Constants
 	final static Charset ENCODING = StandardCharsets.UTF_8;
 
-	public static void writeNewFile(String outputFilePath, Set<Student> setOfStudents) {
-		Path path = Paths.get(outputFilePath);
+	public static void writeNewFile(Set<Student> setOfStudents) {
+		// Generate output file name with the current date
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		String currentDate = dateFormat.format(new Date());
+		String outputFolderPath = "Output";
+		String outputFileName = outputFolderPath + "/output-" + currentDate + ".txt";
 
-		try (BufferedWriter writer = Files.newBufferedWriter(path, ENCODING)) {
-			for (Student currentStudent : setOfStudents) {
-				int studentID = currentStudent.getId();
-				String studentName = currentStudent.getName();
-				HashMap<String, Double> finalMarks = currentStudent.getFinalMarks();
+		Path path = Paths.get(outputFileName);
 
-				// Iterate over all of the student's courses
-				for (Map.Entry<String, Double> course : finalMarks.entrySet()) {
-					String courseName = course.getKey();
-					double finalMark = course.getValue();
+		try {
+			Files.createDirectories(Paths.get(outputFolderPath)); // Create the Output folder if it doesn't exist
+			try (BufferedWriter writer = Files.newBufferedWriter(path, ENCODING)) {
+				for (Student currentStudent : setOfStudents) {
+					int studentID = currentStudent.getId();
+					String studentName = currentStudent.getName();
+					HashMap<String, Double> finalMarks = currentStudent.getFinalMarks();
 
-					String line = studentID + ", " + studentName + ", " + courseName + ", " + finalMark;
-					writer.write(line);
-					writer.newLine();
-					System.out.println("Output: " + line);
+					// Iterate over all of the student's final marks
+					for (Map.Entry<String, Double> entry : finalMarks.entrySet()) {
+						String courseName = entry.getKey();
+						double finalMark = entry.getValue();
+
+						String line = studentID + ", " + studentName + ", " + courseName + ", " + finalMark;
+						writer.write(line);
+						writer.newLine();
+					}
 				}
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

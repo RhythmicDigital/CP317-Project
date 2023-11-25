@@ -3,6 +3,7 @@ package src.inputComponent;
 import src.Student;
 
 import java.io.File;
+import java.util.Objects;
 import java.util.Set;
 
 public interface ReadFile {
@@ -23,18 +24,19 @@ public interface ReadFile {
     }
 
     default boolean isValidStudentName(String name, int lineNumber) {
-        if (name == null) {
+        if (Objects.equals(name, "")) {
             System.out.println("Error at line " + lineNumber + ": Student name is null.");
             return false;
         }
 
-        if (!name.matches("[A-Za-z]+\\s[A-Za-z]+(-[A-Za-z]+)?")) {
-            System.out.println("Error at line " + lineNumber + ": Invalid student name format. It should be in the format 'First Last' or 'First Last-Last'.");
+        if (!name.matches("[A-Za-z]+([\\s-][A-Za-z]+)?")) {
+            System.out.println("Error at line " + lineNumber + ": Invalid student name format. It should be in the format 'First', 'First Last', 'First-Last', or 'FirstLast'.");
             return false;
         }
 
         return true;
     }
+
 
     default boolean isValidCourseCode(String code, int lineNumber) {
         if (code == null) {
