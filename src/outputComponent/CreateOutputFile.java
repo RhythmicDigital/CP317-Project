@@ -24,7 +24,7 @@ public class CreateOutputFile {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		String currentDate = dateFormat.format(new Date());
 		String outputFolderPath = "Output";
-		String outputFileName = outputFolderPath + "/output-" + currentDate + ".txt";
+		String outputFileName = outputFolderPath + "/Output-" + currentDate + ".txt";
 
 		Path path = Paths.get(outputFileName);
 

@@ -23,9 +23,3 @@
 399463559, Leoni Stamp
 362937206, Brenden Bray
 260735737, Jazmin Foreman
-34, Mer Zhang
-123456789, ^hello
-123456789, hello-hello
-234567891,
-, Mer Zhang
-000000000, Mer Zhang

@@ -54,16 +54,19 @@ public class ReadCourse implements ReadFile {
 						}
 						if (!isFound){
 							System.out.println("Error in file " + fileName + " at line " + lineNumber + ": Student ID " + studentId + " does not exist.");
+							System.exit(1);
 						}
 					} else {
-						// Do not process the line if validation fails
+						System.exit(1);
 					}
 				} else {
 					System.out.println("Error in file " + fileName + " at line " + lineNumber + ": Invalid format in course file.");
+					System.exit(1);
 				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+			System.exit(1);
 		}
 	}
 }
