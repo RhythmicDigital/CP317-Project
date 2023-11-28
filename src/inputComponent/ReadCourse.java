@@ -13,7 +13,7 @@ import src.Student;
 public class ReadCourse implements ReadFile {
 
 	@Override
-	public void readFile(File courseFile, Set<Student> setOfStudents) {
+	public void readFile(File courseFile, Set<Student> setOfStudents, String fileName) {
 		try (BufferedReader reader = new BufferedReader(new FileReader(courseFile))) {
 			String line;
 			int lineNumber = 0;
@@ -29,14 +29,15 @@ public class ReadCourse implements ReadFile {
 					String test3 = parts[4].trim();
 					String finalMark = parts[5].trim();
 
-					if (isValidStudentId(id, lineNumber) && isValidCourseCode(course, lineNumber) &&
-							isValidMark(test1, lineNumber) && isValidMark(test2, lineNumber) && isValidMark(test3, lineNumber) && isValidMark(finalMark, lineNumber)) {
+					if (isValidStudentId(id, lineNumber, fileName) && isValidCourseCode(course, lineNumber, fileName) &&
+							isValidMark(test1, lineNumber, fileName) && isValidMark(test2, lineNumber, fileName) && isValidMark(test3, lineNumber, fileName) && isValidMark(finalMark, lineNumber, fileName)) {
 
 						int studentId = Integer.parseInt(id);
 						double t1 = Double.parseDouble(test1);
 						double t2 = Double.parseDouble(test2);
 						double t3 = Double.parseDouble(test3);
 						double finalM = Double.parseDouble(finalMark);
+						boolean isFound = false;
 
 						for (Student student : setOfStudents) {
 							if (student.getId() == studentId) {
@@ -47,14 +48,18 @@ public class ReadCourse implements ReadFile {
 								scores.add(finalM);
 
 								student.setMarks(course, scores);
+								isFound = true;
 								break;
 							}
+						}
+						if (!isFound){
+							System.out.println("Error in file " + fileName + " at line " + lineNumber + ": Student ID " + studentId + " does not exist.");
 						}
 					} else {
 						// Do not process the line if validation fails
 					}
 				} else {
-					System.out.println("Error at line " + lineNumber + ": Invalid format in course file.");
+					System.out.println("Error in file " + fileName + " at line " + lineNumber + ": Invalid format in course file.");
 				}
 			}
 		} catch (IOException e) {

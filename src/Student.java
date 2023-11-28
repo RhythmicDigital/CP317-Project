@@ -44,10 +44,6 @@ public class Student {
 	/**
 	 * Creates formatted String version of src.Student.
 	 */
-	@Override
-	public String toString() {
-		return (this.name + ": " + this.studentId);
-	}
 
 	public void setMarks(String courseName, ArrayList<Double> marks) {
 		this.studentAllMarks.put(courseName, marks);
@@ -77,14 +73,4 @@ public class Student {
 	public int hashCode() {
 		return Objects.hash(studentId);
 	}
-
-	public void debug() {
-		for (Map.Entry<String, ArrayList<Double>> student : studentAllMarks.entrySet()) {
-			String key = student.getKey();
-			ArrayList<Double> value = student.getValue();
-			System.out.println(
-					"Name: " + this.name + ", ID: " + this.studentId + ", Course: " + key + ", Marks: " + value);
-		}
-	}
-
 }

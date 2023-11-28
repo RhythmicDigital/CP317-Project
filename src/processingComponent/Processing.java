@@ -15,7 +15,7 @@ public class Processing {
 	private static final double TEST_WEIGHT = 0.2;
 	private static final double FINAL_EXAM_WEIGHT = 0.4;
 
-	public static double round(double value, int places) {
+	private static double round(double value, int places) {
 		if (places < 0)
 			throw new IllegalArgumentException();
 
