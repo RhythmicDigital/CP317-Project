@@ -13,9 +13,9 @@ import java.util.Objects;
  */
 public class Student {
 
-	protected String name;
-	protected int studentId;
-	protected HashMap<String, ArrayList<Double>> studentAllMarks = new HashMap<String, ArrayList<Double>>();
+	private final String name;
+	private final int studentId;
+	private final HashMap<String, ArrayList<Double>> studentAllMarks = new HashMap<String, ArrayList<Double>>();
 	public HashMap<String, Double> studentFinalMarks = new HashMap<String, Double>();
 
 	/**
