@@ -19,6 +19,10 @@ public class CreateOutputFile {
 	// Constants
 	final static Charset ENCODING = StandardCharsets.UTF_8;
 
+	/**
+	 * Method for writing to output file.
+	 * @param setOfStudents      set of students.
+	 */
 	public static void writeNewFile(Set<Student> setOfStudents) {
 		// Generate output file name with the current date
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

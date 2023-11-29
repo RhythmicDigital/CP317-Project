@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Inherited class.
+ * Student class.
  *
  * @author Team
  * @version 2023-11-06
@@ -31,7 +31,7 @@ public class Student {
 	}
 
 	/**
-	 * Getter for studentId.
+	 * Getter method for studentId.
 	 *
 	 * @return this.studentId
 	 */
@@ -39,28 +39,54 @@ public class Student {
 		return this.studentId;
 	}
 
+	/**
+	 * Getter method for student name.
+	 *
+	 * @return this.name
+	 */
 	public String getName(){return this.name;}
 
 	/**
-	 * Creates formatted String version of src.Student.
+	 * Setter for studentAllMarks.
+	 * @param courseName name of course.
+	 * @param marks      array list of marks.
 	 */
-
 	public void setMarks(String courseName, ArrayList<Double> marks) {
 		this.studentAllMarks.put(courseName, marks);
 	}
 
+	/**
+	 * Setter for studentFinalMarks.
+	 * @param courseName name of course.
+	 * @param mark       mark to set (Double).
+	 */
 	public void setFinalMark(String courseName, Double mark) {
 		this.studentFinalMarks.put(courseName, mark);
 	}
 
+	/**
+	 * Getter method for student marks.
+	 *
+	 * @return this.name
+	 */
 	public HashMap<String, ArrayList<Double>> getAllMarks() {
 		return this.studentAllMarks;
 	}
 
+	/**
+	 * Getter method for student final marks.
+	 *
+	 * @return this.name
+	 */
 	public HashMap<String, Double> getFinalMarks() {
 		return this.studentFinalMarks;
 	}
 
+	/**
+	 * Helper method for comparing students.
+	 * @param o object to compare.
+	 * @return true if this.studentId is equal to other student id.
+	 */
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
@@ -69,6 +95,11 @@ public class Student {
 		return studentId == student.studentId;
 	}
 
+	/**
+	 * Helper method for getting student id hashcode.
+	 *
+	 * @return hashcode of student id.
+	 */
 	@Override
 	public int hashCode() {
 		return Objects.hash(studentId);

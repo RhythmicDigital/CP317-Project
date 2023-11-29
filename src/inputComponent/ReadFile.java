@@ -7,8 +7,22 @@ import java.util.Objects;
 import java.util.Set;
 
 public interface ReadFile {
+
+    /**
+     * Abstract method for reading file.
+     * @param file          file to read.
+     * @param setOfStudents set of students.
+     * @param fileName      name of file.
+     */
     void readFile(File file, Set<Student> setOfStudents, String fileName);
 
+    /**
+     * Helper method for checking student id validity.
+     * @param id  student id.
+     * @param lineNumber number of lines.
+     * @param fileName name of file.
+     * @return true if student id is valid.
+     */
     default boolean isValidStudentId(String id, int lineNumber, String fileName) {
         if (id == null) {
             System.out.println("Error in file " + fileName + " at line " + lineNumber + ": Student ID is null.");
@@ -23,6 +37,13 @@ public interface ReadFile {
         return true;
     }
 
+    /**
+     * Helper method for checking student name validity.
+     * @param name       student name.
+     * @param lineNumber number of lines.
+     * @param fileName   name of file.
+     * @return true if student name is valid.
+     */
     default boolean isValidStudentName(String name, int lineNumber, String fileName) {
         if (Objects.equals(name, "")) {
             System.out.println("Error in file " + fileName + " at line " + lineNumber + ": Student name is null.");
@@ -37,6 +58,13 @@ public interface ReadFile {
         return true;
     }
 
+    /**
+     * Helper method for checking course code validity.
+     * @param code       course code.
+     * @param lineNumber number of lines.
+     * @param fileName   name of file.
+     * @return true if the course code is valid.
+     */
     default boolean isValidCourseCode(String code, int lineNumber, String fileName) {
         if (code == null) {
             System.out.println("Error in file " + fileName + " at line " + lineNumber + ": Course code is null.");
@@ -51,6 +79,13 @@ public interface ReadFile {
         return true;
     }
 
+    /**
+     * Helper method for mark validity.
+     * @param mark       course code.
+     * @param lineNumber number of lines.
+     * @param fileName   name of file.
+     * @return true if mark is valid.
+     */
     default boolean isValidMark(String mark, int lineNumber, String fileName) {
         if (mark == null) {
             System.out.println("Error in file " + fileName + " at line " + lineNumber + ": Mark is null.");

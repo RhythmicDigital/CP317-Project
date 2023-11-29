@@ -19,8 +19,8 @@ public class ProjectMain {
 	public static Set<Student> setOfStudents = new HashSet<Student>();
 
 	/**
-	 * For testing. Reads contents of "CourseFile.txt" and "NameFile.txt" from root
-	 * of project and outputs to "OutputFile.txt".
+	 * For testing. Reads contents of "CourseFile.txt" and "NameFile.txt" from input folder
+	 * of project and outputs to output folder.
 	 *
 	 * @param args Unused.
 	 */

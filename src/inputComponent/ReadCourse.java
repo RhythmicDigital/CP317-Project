@@ -12,6 +12,12 @@ import src.Student;
 
 public class ReadCourse implements ReadFile {
 
+	/**
+	 * Method for reading course file.
+	 * @param courseFile      course file.
+	 * @param setOfStudents   set of students.
+	 * @param fileName        file name.
+	 */
 	@Override
 	public void readFile(File courseFile, Set<Student> setOfStudents, String fileName) {
 		try (BufferedReader reader = new BufferedReader(new FileReader(courseFile))) {
