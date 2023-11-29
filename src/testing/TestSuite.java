@@ -1,4 +1,4 @@
-package src.testing.testInput;
+package src.testing;
 
 
 import src.Student;
