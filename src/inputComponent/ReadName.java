@@ -8,6 +8,13 @@ import java.util.Set;
 import src.Student;
 
 public class ReadName implements ReadFile {
+
+	/**
+	 * Method for reading name file.
+	 * @param nameFile      	 course file.
+	 * @param setOfStudents      set of students.
+	 * @param fileName     	     file name.
+	 */
 	@Override
 	public void readFile(File nameFile, Set<Student> setOfStudents, String fileName) {
 		try (BufferedReader reader = new BufferedReader(new FileReader(nameFile))) {

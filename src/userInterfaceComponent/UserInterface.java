@@ -4,6 +4,11 @@ import java.io.File;
 import java.util.Scanner;
 
 public class UserInterface {
+
+    /**
+     * Method for reading course file.
+     * @return String[] of file names.
+     */
     public static String[] getFileNamesFromUser() {
         Scanner scanner = new Scanner(System.in);
 
@@ -34,6 +39,11 @@ public class UserInterface {
         return new String[]{nameFileName, courseFileName};
     }
 
+    /**
+     * Helper method for reading course file.
+     * @param fileName name of  file.
+     * @return true if file path is valid.
+     */
     private static boolean isValidFilePath(String fileName) {
         File file = new File("./input/" + fileName + ".txt");
         return file.exists() && file.isFile();

@@ -15,6 +15,12 @@ public class Processing {
 	private static final double TEST_WEIGHT = 0.2;
 	private static final double FINAL_EXAM_WEIGHT = 0.4;
 
+	/**
+	 * Helper method for rounding decimals.
+	 * @param value  value.
+	 * @param places number of decimal places.
+	 * @return The rounded value.
+	 */
 	private static double round(double value, int places) {
 		if (places < 0)
 			throw new IllegalArgumentException();
@@ -24,6 +30,11 @@ public class Processing {
 		return bd.doubleValue();
 	}
 
+	/**
+	 * Helper method for calculating marks based on weights.
+	 * @param marks      marks.
+	 * @return The calculated final mark.
+	 */
 	private static double calculationHelper(ArrayList<Double> marks) {
 		double finalMark = 0;
 		Double firstMark = marks.get(0);
@@ -37,6 +48,10 @@ public class Processing {
 
 	}
 
+	/**
+	 * Method for setting final marks for students.
+	 * @param students      set of students.
+	 */
 	public static void calculateFinal(Set<Student> students) {
 		double finalMark = 0;
 		HashMap<String, ArrayList<Double>> allMarks;
