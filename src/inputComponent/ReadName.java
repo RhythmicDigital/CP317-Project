@@ -34,16 +34,19 @@ public class ReadName implements ReadFile {
 							setOfStudents.add(newStudent);
 						} else {
 							System.out.println("Error in file " + fileName + " at line " + lineNumber + ": Duplicate student ID in name file.");
+							System.exit(1);
 						}
 					} else {
-						// Do not process the line if validation fails
+						System.exit(1);
 					}
 				} else {
 					System.out.println("Error in file " + fileName + " at line " + lineNumber + ": Invalid format in name file.");
+					System.exit(1);
 				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+			System.exit(1);
 		}
 	}
 }
