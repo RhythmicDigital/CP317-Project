@@ -57,8 +57,8 @@ public class TestSuite {
 		System.out.println("Testing src.ReadFile");
 		System.out.println(LINE);
 		String[] inputFiles = UserInterface.getFileNamesFromUser();
-		String COURSE_FILE_PATH = "./testInput/" + inputFiles[1] + ".txt";
-		String NAME_FILE_PATH = "./testInput/" + inputFiles[0] + ".txt";
+		String COURSE_FILE_PATH = "./input/" + inputFiles[1] + ".txt";
+		String NAME_FILE_PATH = "./input/" + inputFiles[0] + ".txt";
 		File courseFile = new File(COURSE_FILE_PATH);
 		File nameFile = new File(NAME_FILE_PATH);
 		NAME_READER.readFile(nameFile, setOfStudents, inputFiles[0]);

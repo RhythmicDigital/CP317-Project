@@ -45,7 +45,7 @@ public class UserInterface {
      * @return true if file path is valid.
      */
     private static boolean isValidFilePath(String fileName) {
-        File file = new File("./testInput/" + fileName + ".txt");
+        File file = new File("./input/" + fileName + ".txt");
         return file.exists() && file.isFile();
     }
 }
